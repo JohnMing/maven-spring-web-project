@@ -7,11 +7,22 @@ pipeline {
 
   }
   stages {
-    stage('mvn') {
+    stage('mvn pack') {
       steps {
         sh 'mvn -B -DskipTests clean package'
+      }
+    }
+    stage('backup') {
+      steps {
         sh 'pwd'
-        sh 'cp /var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war /home/webapps/CounterWebApp.war'
+        script{
+          def backup = '/home/webapps_backup/CounterWebApp_'+number+'.war'
+          def dest = '/home/webapps/CounterWebApp.war'
+          def src = '/var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war'
+          echo backup
+          sh 'mv ${dest} ${backup}'
+          sh 'cp ${dest} ${src}'
+        }
       }
     }
   }
