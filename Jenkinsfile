@@ -21,9 +21,9 @@ pipeline {
 				def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
 				def dest = '/home/webapps/CounterWebApp.war'
 				def src = '/var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war'
-				echo backup
-				sh 'mv -f ${dest} ${backup}'
-				sh 'cp ${dest} ${src}'
+				echo 'mv -f ${dest} ${backup}'
+				echo 'cp -f ${dest} ${backup}'
+
 			}
 	  }
 	}
