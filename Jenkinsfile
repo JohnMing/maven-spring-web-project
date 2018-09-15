@@ -16,19 +16,13 @@ pipeline {
       steps {
         sh 'pwd'
         script{
-            try {
-              def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
-              def dest = '/home/webapps/CounterWebApp.war'
-              def src = '/var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war'
-              echo backup
-              sh 'mv ${dest} ${backup}'
-              sh 'cp ${dest} ${src}'
-             }
-            catch(ex){
-               echo 'exception'
-               throw
-            }
-          }
+		  def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
+		  def dest = '/home/webapps/CounterWebApp.war'
+		  def src = '/var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war'
+		  echo backup
+		  sh 'mv ${dest} ${backup}'
+		  sh 'cp ${dest} ${src}'
+        }
       }
     }
   }
