@@ -16,7 +16,7 @@ pipeline {
       steps {
         sh 'pwd'
         script{
-          def backup = '/home/webapps_backup/CounterWebApp_'+number+'.war'
+          def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
           def dest = '/home/webapps/CounterWebApp.war'
           def src = '/var/jenkins_home/workspace/SpringMVCWebDemo-pine/target/CounterWebApp.war'
           echo backup
