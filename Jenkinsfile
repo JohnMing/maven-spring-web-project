@@ -18,9 +18,9 @@ pipeline {
 			sh 'pwd'
 
 			script{
-				def backup = '/root/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
-				def dest = '/root/home/webapps/CounterWebApp.war'
-				def src = '/root/jenkins_home/jenkins-data/workspace/maven-spring-web-project/target/CounterWebApp.war'
+				def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
+				def dest = '/home/webapps/CounterWebApp.war'
+				def src = '/var/jenkins_home/workspace/maven-spring-web-project/target/CounterWebApp.war'
 				sh "cp  ${src} ${dest}"
 				sh "cp  ${dest} ${backup}"
 				
