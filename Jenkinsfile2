@@ -16,8 +16,8 @@ pipeline {
 	stage('backup') {
 		agent{
 			docker{
-			image 'rsalian/centos-sshpass'
-			args '-v /home/webapps:/home/webapps'
+			image 'adhax/alpine-sshpass'
+			args '-v /root/home/webapps:/home/webapps'
 			}
 		}
 		
