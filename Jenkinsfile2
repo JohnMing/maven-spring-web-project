@@ -17,7 +17,7 @@ pipeline {
 		agent{
 			docker{
 			image 'adhax/alpine-sshpass'
-			args '-v /home/webapps:/home/webapps
+			args '-v /home/webapps:/home/webapps'
 			}
 		}
 		
