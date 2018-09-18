@@ -1,0 +1,33 @@
+pipeline {
+  agent {
+    docker {
+      image 'maven:3-alpine'
+      args '-v /root/.m2:/root/.m2'
+    }
+  }
+  
+  stages {
+	stage('mvn pack') {
+	  steps {
+		sh 'mvn -B -DskipTests clean package'
+	  }
+	}
+
+	stage('backup') {
+		steps {
+		sh 'pwd'
+
+		script{
+			def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
+			def dest = '/home/webapps/CounterWebApp.war'
+			def src = '/var/jenkins_home/workspace/maven-spring-web-project/target/CounterWebApp.war'
+			sh "cp  ${src} ${dest}"
+			sh "cp  ${dest} ${backup}"
+			sh "./auto_deploy.sh"	
+			echo "auto_deploy success"
+
+			}
+	  	    }
+		}
+	}
+}
