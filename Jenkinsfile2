@@ -22,13 +22,13 @@ pipeline {
 		
 		steps {
 		sh 'pwd'
-		sh 'sshpass'
 		script{
 			def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
 			def dest = '/home/webapps/CounterWebApp.war'
 			def src = '/var/jenkins_home/workspace/maven-spring-web-project/target/CounterWebApp.war'
 			sh "cp  ${src} ${dest}"
 			sh "cp  ${dest} ${backup}"
+			sh 'sshpass'
 			sh "sh /home/webapps/auto_deploy.sh"	
 			echo "auto_deploy success"
 
