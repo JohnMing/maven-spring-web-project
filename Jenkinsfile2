@@ -28,8 +28,7 @@ pipeline {
 			def src = '/var/jenkins_home/workspace/maven-spring-web-project/target/CounterWebApp.war'
 			sh "cp  ${src} ${dest}"
 			sh "cp  ${dest} ${backup}"
-			sh 'sshpass'
-			sh "sh /home/webapps/auto_deploy.sh"	
+			sh "sh -x /home/webapps/auto_deploy.sh"	
 			echo "auto_deploy success"
 
 			}
