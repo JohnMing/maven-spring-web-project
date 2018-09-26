@@ -32,7 +32,7 @@ pipeline {
 			agent{
 				docker{
 					image 'adhax/alpine-sshpass'
-					args '-v /root/linhaoming/home/jenkins_deploy:/home/jenkins_deploy'
+					args '-v /root/linhaoming/home:/home'
 				}
 			}
 			
