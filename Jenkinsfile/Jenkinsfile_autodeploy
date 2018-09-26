@@ -39,8 +39,7 @@ pipeline {
 			steps {
 				script{
 					sh 'pwd'
-					sh 'ls /home/jenkins_deploy/auto_deploy.sh'
-					sh "sh /home/jenkins_deploy/auto_deploy.sh"	
+					sh "sh -x /home/jenkins_deploy/auto_deploy.sh"	
 					echo "auto_deploy success"
 				}
 			}
