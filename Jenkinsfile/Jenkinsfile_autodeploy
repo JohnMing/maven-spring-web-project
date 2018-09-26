@@ -15,7 +15,7 @@ pipeline {
 		}
 		
 		stage('备份旧war包') {
-			agent none
+			agent { label 'backup-label'}
 			steps {
 				script{
 					sh 'pwd'
