@@ -14,7 +14,8 @@ pipeline {
 		    }
 		}
 		
-		stage('备份旧war包') {		
+		stage('备份旧war包') {
+			agent none
 			steps {
 				script{
 					sh 'pwd'
