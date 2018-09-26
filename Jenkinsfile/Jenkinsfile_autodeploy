@@ -32,19 +32,14 @@ pipeline {
 			agent{
 				docker{
 					image 'adhax/alpine-sshpass'
-					args '-v /home/webapps:/home/webapps'
+					args '-v /home/jenkins_deploy:/home/jenkins_deploy'
 				}
 			}
 			
 			steps {
 				sh 'pwd'
 				script{
-					def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
-					def dest = '/home/webapps/CounterWebApp.war'
-					def src = '/var/jenkins_home/workspace/maven-spring-web-project/target/CounterWebApp.war'
-					sh "cp  ${src} ${dest}"
-					sh "cp  ${dest} ${backup}"
-					sh "sh  /home/webapps/auto_deploy.sh"	
+					sh "sh  /home/jenkins_deploy/auto_deploy.sh"	
 					echo "auto_deploy success"
 				}
 			}
