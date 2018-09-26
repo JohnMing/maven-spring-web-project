@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   stages {
 		stage('maven打包') {
 		    agent {
@@ -15,7 +15,6 @@ pipeline {
 		}
 		
 		stage('备份旧war包') {
-			agent { label 'backup-label'}
 			steps {
 				script{
 					sh 'pwd'
