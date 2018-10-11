@@ -1,7 +1,7 @@
 <html>
 <body>
  <h1>test jenkins auto deploy!</h1>
- <h1>add some content</h1>
+ <h1>sdfdsfdsft</h1>
 <h1>Maven + Spring MVC Web Project Example</h1>
 <h3>Message : ${message}</h3>
 <h3>Counter : ${counter}</h3>	
