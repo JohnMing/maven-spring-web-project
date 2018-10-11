@@ -20,7 +20,7 @@ pipeline {
 					sh 'pwd'
 					def backup = '/home/webapps_backup/CounterWebApp_'+currentBuild.number+'.war'
 					def dest = '/home/webapps/CounterWebApp.war'
-					def src = '/var/jenkins_home/workspace/测试远程部署/target/CounterWebApp.war'
+					def src = '/var/jenkins_home/workspace/测试远程部署@2/target/CounterWebApp.war'
 					sh "cp  ${src} ${dest}"
 					sh "cp  ${dest} ${backup}"
 					echo 'backup success'
